@@ -1,0 +1,702 @@
+/* Allgemeines Layout */
+.page-width {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  h2 {
+    margin-top: 0rem; /* Reduziert den oberen Abstand */
+  }
+  
+  /* Flexibles Layout für Bild und Formulare */
+  .form-container {
+    display: flex;
+    align-items: flex-start; /* Bild und Formulare oben ausrichten */
+    gap: 2rem; /* Abstand zwischen Bild und Formularen */
+    flex-wrap: nowrap; /* Sicherstellen, dass die Formulare nicht umbrechen */
+  }
+  
+  .image {
+    flex: 1;
+    max-width: 40%;
+  }
+  
+  .image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column; /* Die Kontakt- und Ringformulare untereinander */
+  }
+  
+  .form-group {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .form-group.mandatory::after {
+    content: "*";
+    position: absolute;
+    top: 2px; /* Abstand vom oberen Rand des Eingabefeldes */
+    right: 5px; /* Abstand vom rechten Rand des Eingabefeldes */
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+    pointer-events: none; /* Sternsymbol bleibt klickbar durchsichtig */
+  }
+  
+  .contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .contact-info label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .contact-info input, 
+  .contact-info select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-info input:focus, 
+  .contact-info select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .form-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  /* Falls spezifisch nur für Kontaktinformationen und Personalisierungsanfrage */
+  .ring-wrapper + h2 {
+    margin-top: 0.5rem; /* Noch geringerer Abstand */
+  }
+  
+  /* Ringformulare */
+  .ring-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .ring-block {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    width: 377px;
+  }
+  
+  .ring-block h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align:center;
+    font-weight:bold;
+  }
+  
+  .ring-block .form-group {
+    flex: 1;
+    overflow: visible;
+  }
+  
+  .ring-block .form-group select,
+  .ring-block .form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1rem;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    resize: vertical;
+  }
+  
+  /* Checkbox für Ring 2 */
+  #enable-ring-2 {
+    margin-right: 0.5rem;
+  }
+  
+  .ring-2-content.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  
+  /* Responsives Design */
+  @media (max-width: 768px) {
+    .form-container {
+      flex-direction: column; /* Für kleinere Bildschirme: Layout untereinander */
+    }
+  
+    .ring-wrapper {
+      flex-direction: column;
+    }
+  
+    .contact-info, 
+    .upload-container {
+      width: 100%; /* Kontaktformular nimmt die gesamte Breite ein */
+      padding: 0; /* Optional: Zusätzlicher Abstand entfernen */
+    }
+  }
+  
+  .ring-options {
+    display: flex;
+    flex-direction: column; /* Ordnet die Gruppen vertikal */
+    width:100%;
+  }
+  
+  .form-group label {
+    display: flex;
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: space-between; /* Text links, Pfeil rechts */
+    font-size: 1.5rem; /* Optionale Schriftgrößenanpassung */
+    position: relative; /* Grundpositionierung */
+  }
+  
+  .category_label {
+    padding: 1rem 0;
+  }
+  .form-group .form-row .material-option.profile-option {
+    padding: 0; /* Entfernt das Padding */
+  }
+  
+  .color-box {
+    display: flex; /* Flexbox aktivieren */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: var(--color); /* Dynamische Farbe */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Verhindert Überschreitungen */
+    font-size: 1.1rem; /* Textgröße */
+    font-weight: bold; /* Text fett darstellen */
+    color: #333; /* Schriftfarbe */
+    poniter-events: auto;
+  }
+  
+  .color-box img {
+    z-index:1;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Reflexionseffekt */
+  .color-box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    transform: rotate(45deg) translate(0, 0);
+    pointer-events: none;
+    opacity: 0.7;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+    background-size: 50% 100%;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+  }
+  
+  .material-option {
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column; /* Ordnet Bild und Text vertikal an */
+    align-items: center; /* Zentriert den Text horizontal */
+    margin: 1px;
+    position: relative;
+  }
+  
+  .profile-option {
+    width: 108px; /* Feste Breite für jedes Element */
+    height:65px;
+    margin:2px;
+  }
+  
+  .profile-option img {
+    width: 100%; /* Passt sich der Breite der Box an */
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fdfdfd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .material-option:hover .color-box::before {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+  
+  /* Radio-Button verstecken */
+  .material-option input[type="radio"],
+  .profile-option input[type="radio"] {
+    display: none;
+  }
+  
+  .material-option span {
+    margin-top: 0.5rem; /* Abstand zur Box */
+    font-size: 1.1rem;
+    color: #333;
+    display: block; /* Blockelement für Konsistenz */
+    width: 45px; /* Feste Breite für alle Texte */
+  }
+  
+  /* Aktivierter Zustand */
+  .material-option input[type="radio"]:checked + .color-box, {
+    border: 2px solid var(--gold-border); /* Leuchtender Effekt */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Leuchtender Effekt */
+    transform: scale(1.05); /* Deutliche Vergrößerung */
+  }
+  
+  .profile-gap {
+    gap: 1rem !important;
+  }
+  
+  .profile-option input[type="radio"]:focus + img {
+    outline: 2px solid var(--secondary-gold);
+    outline-offset: 2px;
+  }
+  
+  .profile-option:hover img {
+    transform: scale(1.03);
+    border: 1px solid var(--secondary-gold);
+  }
+  
+  .profile-option input[type="radio"]:checked + img,
+  .material-option input[type="radio"]:checked + .color-box {
+    border: 2px solid var(--secondary-gold);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+  }
+  
+  /* Dynamische Farben */
+  .material-option--gelbgold {
+    --color: #FFD700;
+  }
+  
+  .material-option--weissgold {
+    --color: #E5E4E2;
+  }
+  
+  .material-option--rosegold {
+    --color: #E8A798;
+  }
+  
+  .material-option--multicolor {
+    --color: linear-gradient(135deg, #FFD700, #E5E4E2, #B76E79);
+  }
+  
+  .material-option--333 {
+    background: linear-gradient(135deg, #fce4aa, #fff3d9); /* Heller Goldton */
+  }
+  
+  .material-option--375 {
+    background: linear-gradient(135deg, #f9de99, #ffe9b8); /* Sanfter Gelbgoldton */
+  }
+  
+  .material-option--585 {
+    background: linear-gradient(135deg, #fcd45d, #ffe687); /* Typisches Gelbgold */
+  }
+  
+  .material-option--750 {
+    background: linear-gradient(135deg, #fcc12e, #ffdb66); /* Satter Goldton */
+  }
+  
+  .divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 0.2rem 0 0 0;
+  }
+  
+  .loupe {
+    position: absolute;
+    top: -150px;
+    left: -250px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    overflow: hidden; /* Begrenze den Bereich */
+    transform: translate(-50%, -50%) scale(0); /* Versteckt */
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+  }
+  
+  .loupe img {
+    position: absolute;
+    width: 300%; /* Vergrößere das Bild */
+    height: auto;
+    top: -160px;
+    left: -140px;
+    pointer-events: none;
+  }
+  
+  .loupe-title {
+    position: absolute;
+    bottom: 0; /* Am unteren Rand der Lupe */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0; /* Abstand zwischen Text und Rand */
+    background-color: rgba(255, 255, 255, 0.8); /* Transparenter weißer Hintergrund */
+    font-size: 12px; /* Schriftgröße anpassen */
+    font-weight: bold;
+    color: #333; /* Dunkle Schriftfarbe */
+    z-index: 1; /* Über dem Bild anzeigen */
+  }
+  
+  @media (max-width: 768px) {
+    .loupe {
+      position: fixed;
+      bottom: auto; /* Position anpassen */
+      top: 100px; /* Unten rechts */
+      left: 10px;
+      left: auto;
+      transform: scale(0); /* Anfangszustand: versteckt */
+      z-index: 10;
+    }
+  }
+  
+  #engravingText {
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .font-options {
+    margin-top: 1rem;
+  }
+  
+  .font-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .font-box {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    flex: 1 1 calc(20% - 1rem);
+  }
+  
+  .font-box:hover {
+    border-color: #007bff;
+    background-color: #eef5ff;
+  }
+  
+  .font-box.selected {
+    border-color: #007bff;
+    background-color: #dceeff;
+  }
+  
+  .gravur-preview {
+    display: flex; /* Flexbox für horizontale Anordnung */
+    align-items: center; /* Vertikale Ausrichtung */
+    justify-content: space-between; /* Abstand zwischen Label und Vorschau */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Einheitlicher Hintergrund */
+    max-width: 100%; /* Passt sich an den Container an */
+  }
+  
+  .gravur-preview label {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 600;
+    margin-right: 1rem;
+    flex-shrink: 0; /* Verhindert Verkleinerung des Labels */
+  }
+  
+  .gravur-preview-box {
+    width: 200px; /* Feste Breite für die Vorschau-Box */
+    padding: 0.5rem;
+    border: 1px solid #ddd; /* Rahmen um die Vorschau */
+    border-radius: 4px;
+    background-color: #fff; /* Weiße Box */
+    text-align: center; /* Zentrierter Text */
+    font-size: 1.5rem; /* Lesbare Größe */
+    color: #333; /* Angenehmer Farbton */
+    font-family: 'Times New Roman';
+    overflow: hidden; /* Verhindert Überschreitungen */
+    white-space: nowrap; /* Kein Zeilenumbruch */
+    text-overflow: ellipsis; /* Punkte bei zu langem Text */
+    flex-shrink: 0; /* Verhindert Verkleinerung der Box */
+  }
+  
+  /* Textarea für Notizen */
+  .form-group.notes textarea {
+    height: 100px; /* Höhe anpassen */
+    width: 100%; /* Nimmt den gesamten Platz ein */
+    padding: 1rem; /* Innenabstand */
+    border: 1px solid #ccc; /* Rahmenfarbe */
+    resize: vertical; /* Benutzer kann die Größe vertikal ändern */
+    box-sizing: border-box; /* Padding und Border in die Gesamtbreite einbeziehen */
+  }
+  
+  /* Notizenbereich */
+  .form-group.notes {
+    position: relative;
+  }
+  
+  .form-group.notes label {
+    display: flex;
+    justify-content: space-between; /* Platz zwischen Label und Icon */
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  .notes-content {
+    display: none; /* Standardmäßig versteckt */
+    margin-top: 10px;
+  }
+  
+  .notes-content.expanded {
+    display: block; /* Zeigt den Bereich an, wenn erweitert */
+  }
+  
+  /* Gemeinsame Klasse für Inhalte mit versteckbaren Bereichen */
+  .toggle-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-height: 0; /* Anfangszustand: versteckt */
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .toggle-content.expanded {
+    max-height: none; /* Hebt die Begrenzung der Höhe auf */
+    opacity: 1; /* Zeigt den Inhalt an */
+    overflow: visible; /* Verhindert Abschneiden */
+  }
+  
+  /* Zusätzliche Eigenschaften für form-row */
+  .form-row {
+    /* Spezifische Eigenschaften für .form-row */
+    min-height: 0; 
+    overflow:visible;
+    display:flex;
+  }
+  .form-group select {
+      flex: 1; /* Gleiche Breite für alle Felder */
+      min-width: 100px; /* Sicherstellen, dass Felder ausreichend groß sind */
+      max-width: 150px; /* Begrenzung der maximalen Breite */
+  }
+  .form-row.expanded {
+    /* Falls für .form-row zusätzliche Anpassungen notwendig sind */
+    max-height: 1000px; /* Überschreibt die allgemeine Regel bei Bedarf */
+    margin-bottom: 1rem;
+  }
+  
+  /* Zusätzliche Eigenschaften für material-buttons */
+  .material-buttons {
+    /* Spezifische Eigenschaften für .material-buttons */
+    justify-content: flex-start; /* Links ausrichten */
+  }
+  
+  /* Allgemeine Content-Steuerung */
+  .form-group .content {
+    display: none; /* Standardmäßig versteckt */
+  }
+  
+  .form-group.expanded .content {
+    display: flex; /* Flexbox für Layout */
+    flex-wrap: wrap;
+    gap: 10px; /* Optional: Abstand zwischen Elementen */
+  }
+  
+  /* Transition- und Hover-Effekte */
+  .material-option:hover .color-box {
+    transform: scale(1.03); /* Leichte Vergrößerung */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Dezenter Rahmen */
+  }
+  
+  /* Toggle-Icon */
+  .toggle-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease; /* Animation für Rotation */
+  }
+  
+  .toggle-icon.expanded {
+    transform: rotate(180deg); /* Dreht das Symbol */
+  }
+  
+  .form-row.toggle-content select {
+    margin-top: 1rem; /* Abstand oben */
+    margin-bottom: 2rem; /* Abstand unten */
+  }
+  
+  .collapsed {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .expanded {
+    max-height: 1000px; /* Oder eine dynamische Höhe */
+    opacity: 1;
+  }
+  
+  .material-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .material-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: auto; /* Sicherstellen, dass Klicks registriert werden */
+    z-index: 10; /* Vorrang für das input */
+  }
+  
+  .material-option .color-box,
+  .material-option span {
+    pointer-events: none; /* Verhindert, dass sie Klicks blockieren */
+  }
+  /* Bilderupload */
+  .bilderupload {
+    margin-top: 20px;
+    padding-bottom:20px;
+  }
+  
+  .bilderupload h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .bilderupload .file-upload {
+    display: flex;
+    gap: 1rem; /* Gleicher Abstand wie bei Ring 1 */
+    margin-bottom: 1rem;
+    width: 100%; /* Passt die Breite an */
+  }
+  
+  .bilderupload .form-group {
+    flex: 1; /* Gleiche Flex-Basis wie die Felder von Ring 1 */
+  }
+  
+  .file-upload label {
+    display: flex;
+    font-size: 1.1rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc; /* Gleicher Randstil wie Ring 1 */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 100%; /* Gleiche Breite wie Eingabefelder */
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  .file-upload label:hover {
+    border-color: #007bff;
+    background-color: #eef5ff;
+  }
+  
+  .file-upload input[type="file"] {
+    display: none; /* Verstecke das Standard-Input-Feld */
+  }
+  
+  .file-upload .upload-label {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .file-upload .file-name {
+    font-size: 0.9rem;
+    color: #007bff;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsives Design für kleinere Bildschirme */
+  @media (max-width: 768px) {
+    .bilderupload .file-upload {
+      flex-direction: column; /* Für schmale Bildschirme: Untereinander */
+      gap: 0.5rem;
+    }
+  
+    .file-upload label {
+      padding: 0.5rem 1rem; /* Weniger Padding für schmale Bildschirme */
+    }
+  }
+  .upload-container {
+    padding: 0;
+    width: calc(50% - 1rem); /* Passt sich der Breite von .ring-block an */
+    margin-bottom: 1rem;
+  }
+  
+  
